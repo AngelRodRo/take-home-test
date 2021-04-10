@@ -1,35 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components'
 
 import Commit from './components/commit'
 
-function App() {
-  const commits = [{
-    sha: 'asdas',
-    message: 'asdasd',
-    committer: {
-      avatar_url: 'asdda',
-      url: 'adssa'
-    }
-  }]
+import { getCommits } from './api/index';
 
-  const commitsList = commits.map(({ sha, message, committer }) => 
+function App() {
+
+  const [commits, setCommits] = useState([])
+
+  useEffect(() => {
+    getCommits().then((commits = []) => {
+      setCommits(commits)
+    })
+  }, [])
+
+  const commitsList = commits.map(({ sha, commit, committer }) => 
     <Commit
       sha={sha}
-      message={message}
+      commit={commit}
       committer={committer}
     />
   )
 
   const StyledList = Styled.div`
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  `
+
+  const StyledContainer = Styled.div`
+    background: #24a7d9;
+    margin: 0;
+    padding: 0;
   `
 
   return (
-    <StyledList>
-      {commitsList}
-    </StyledList>
+    <StyledContainer>
+      <StyledList>
+        {commitsList}
+      </StyledList>
+    </StyledContainer>
   )
 }
 
