@@ -3,11 +3,12 @@ import Styled from 'styled-components'
 
 import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
 
-const StyledContainer = Styled.a`
+const StyledLink = Styled(Link)`
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 15px 0;
 `
 
 interface Props {
@@ -20,7 +21,7 @@ function Author(props: Props) {
     const { url, avatar, name } = props
 
     return (
-        <StyledContainer href={url}>
+        <StyledLink href={url}>
             <Avatar
                 alt="Profile image"
                 src={avatar}
@@ -31,7 +32,7 @@ function Author(props: Props) {
             >
                 {name}
             </Typography>
-        </StyledContainer>
+        </StyledLink>
     )
 }
 
