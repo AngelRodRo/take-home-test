@@ -14,7 +14,8 @@ type CommitDetails = {
 }
 
 export interface Commit {
-    sha: String,
+    sha: string,
     committer: Committer,
     commit: CommitDetails,
+    html_url: string,
 }
