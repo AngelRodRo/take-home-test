@@ -1,7 +1,20 @@
-import { Committer } from './committer'
+type Committer = {
+    avatar_url: string;
+    url: string;
+}
+
+type Author = {
+    name: string;
+    email: string;
+}
+
+type CommitDetails = {
+    message: string;
+    author: Author;
+}
 
 export interface Commit {
     sha: String,
     committer: Committer,
-    message: String,
+    commit: CommitDetails,
 }
