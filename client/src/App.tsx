@@ -15,11 +15,13 @@ function App() {
     })
   }, [])
 
-  const commitsList = commits.map(({ sha, commit, committer }) => 
+  const commitsList = commits.map(({ sha, commit, committer, html_url }) => 
     <Commit
+      key={sha}
       sha={sha}
       commit={commit}
       committer={committer}
+      html_url={html_url}
     />
   )
 
