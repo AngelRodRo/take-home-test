@@ -29,6 +29,21 @@ const StyledInfo = Styled.div`
     margin: 10px;
 `
 
+function formatDate (dateStr: string) : string {
+    const date = new Date(dateStr);
+    const opts : any = {
+        year: 'numeric',
+        month: 'numeric',
+        day: '2-digit',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+    };
+    const format = new Intl.DateTimeFormat('es', opts);
+    const [{ value: value1 },,{ value: value2 },,{ value: value3 },,{ value: hour },, { value: minutes }] = format.formatToParts(date);
+    return `${value1}/${value2}/${value3} - ${hour}:${minutes}`;
+};
+
 function CommitCard(props: Commit) {
     const { sha, committer, commit, html_url } = props
     return (
@@ -39,6 +54,9 @@ function CommitCard(props: Commit) {
                 </Typography>
                 <Typography variant="caption">
                     {sha}
+                </Typography>
+                <Typography variant="subtitle2">
+                    {formatDate(commit.committer.date)}
                 </Typography>
             </StyledInfo>
             <Author

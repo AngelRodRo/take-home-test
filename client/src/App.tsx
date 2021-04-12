@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components'
+import Typography from '@material-ui/core/Typography'
 
 import Commit from './components/commit'
 
@@ -39,6 +40,9 @@ function App() {
 
   return (
     <StyledContainer>
+      <Typography variant="h1" align="center" style={{ padding: "10px 0" }}>
+        Commits logs
+      </Typography>
       <StyledList>
         {commitsList}
       </StyledList>

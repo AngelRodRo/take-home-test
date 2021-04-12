@@ -8,9 +8,14 @@ type Author = {
     email: string;
 }
 
+type CommitterDetails = {
+    date: string;
+}
+
 type CommitDetails = {
     message: string;
     author: Author;
+    committer: CommitterDetails,
 }
 
 export interface Commit {
