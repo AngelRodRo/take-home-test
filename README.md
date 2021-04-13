@@ -34,6 +34,10 @@ npm run start
 
 Copy **.env.example** in server folder and use the default params or change for any other values. 
 
+## Deployed app
+
+You can check the deployed app here: https://take-home-test-app.herokuapp.com/
+
 ## 🐳 Docker 
 
 You can create a docker image using the **Dockerfile** included on the server folder.
